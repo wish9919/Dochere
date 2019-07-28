@@ -3,24 +3,16 @@ import { View, Text, StyleSheet, StatusBar } from "react-native";
 
 import {
   createMaterialTopTabNavigator,
-  createSwitchNavigator
+  createAppContainer
 } from "react-navigation";
+
+import { Header, Body, Left, Right, Title } from "native-base";
 
 //screens
 import MapViewHome from "./MapViewHome";
 import ListViewHome from "./ListViewHome";
 
-export class HomeScreen extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>HomeScreen</Text>
-      </View>
-    );
-  }
-}
-
-export default createMaterialTopTabNavigator(
+const TabNavigator = createMaterialTopTabNavigator(
   {
     MapViewHome: {
       screen: MapViewHome,
@@ -53,8 +45,27 @@ export default createMaterialTopTabNavigator(
   }
 );
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
+const AppContainer = createAppContainer(TabNavigator);
+
+export default class HomeScreen extends Component {
+  render() {
+    return (
+      <View style={{ flex: 1 }}>
+        <Header
+          style={{ backgroundColor: "#fff" }}
+          iosBarStyle="dark-content"
+          androidStatusBarColor="#fff"
+        >
+          <Body>
+            <Title
+              style={{ color: "#2A2E43", fontWeight: "500", marginLeft: 20 }}
+            >
+              Talk to Clinicians
+            </Title>
+          </Body>
+        </Header>
+        <AppContainer />
+      </View>
+    );
   }
-});
+}
