@@ -5,7 +5,8 @@ import {
   StyleSheet,
   StatusBar,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  KeyboardAvoidingView
 } from "react-native";
 import { Container, Header, Content, Item, Input } from "native-base";
 import LinearGradient from "react-native-linear-gradient";
@@ -16,88 +17,67 @@ import Path from "./Assets/path";
 export default class LoginScreen extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
         <StatusBar
           translucent={true}
           barStyle="dark-content"
           backgroundColor="transparent"
         />
-        <View style={{ flex: 1, position: "absolute" }}>
+        {/* <View style={{ flex: 1, position: "absolute" }}>
           <Path />
-        </View>
+        </View> */}
 
-        <View style={styles.flex1} />
-        <View style={styles.flex2}>
-          <View
-            style={{
-              alignItems: "center",
-              justifyContent: "center"
-            }}
-          >
-            <Image
-              source={require("./Assets/logo1.png")}
-              style={{
-                shadowOffset: { width: 10, height: 10 },
-                shadowColor: "black",
-                shadowOpacity: 1,
-                elevation: 3,
-                marginTop: 20
-              }}
-            />
-          </View>
-        </View>
-        <View style={styles.flex3} />
-        <View style={styles.flex4}>
-          <Content
-            style={{ paddingLeft: 40, paddingRight: 40, paddingTop: 10 }}
-          >
-            <Item rounded>
-              <Input
-                style={{ margin: 2, marginLeft: 15 }}
-                placeholder="E mail"
-              />
-            </Item>
-          </Content>
+        <Image
+          source={require("./Assets/logo1.png")}
+          style={{
+            shadowOffset: { width: 10, height: 10 },
+            shadowColor: "black",
+            shadowOpacity: 1,
+            elevation: 3,
+            bottom: 20
+          }}
+        />
 
-          <Content
-            style={{ paddingLeft: 40, paddingRight: 40, paddingTop: 20 }}
+        <Item style={{ marginVertical: 10 }} rounded>
+          <Input
+            textContentType="emailAddress"
+            style={{ margin: 5, marginHorizontal: 15 }}
+            placeholder="Email"
+          />
+        </Item>
+
+        <Item style={{ marginVertical: 10 }} rounded>
+          <Input
+            secureTextEntry={true}
+            style={{ margin: 5, marginHorizontal: 15 }}
+            placeholder="Password"
+          />
+        </Item>
+
+        <TouchableOpacity>
+          <LinearGradient
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            colors={["#00ff92", "#00c4ff"]}
+            style={styles.btn1}
           >
-            <Item rounded>
-              <Input
-                style={{ margin: 2, marginLeft: 15 }}
-                placeholder="Password"
-              />
-            </Item>
-          </Content>
+            <Text style={styles.text1}>LOGIN</Text>
+          </LinearGradient>
+        </TouchableOpacity>
+        <View>
+          <Text style={styles.or}>OR</Text>
         </View>
-        <View style={styles.flex5} />
-        <View style={styles.flex6}>
-          <TouchableOpacity>
-            <LinearGradient
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-              colors={["#00ff92", "#00c4ff"]}
-              style={styles.btn1}
-            >
-              <Text style={styles.text1}>LOGIN</Text>
-            </LinearGradient>
-          </TouchableOpacity>
-          <View>
-            <Text style={styles.or}>OR</Text>
-          </View>
-          <TouchableOpacity>
-            <LinearGradient
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-              colors={["#ffffff", "#ffffff"]}
-              style={styles.btn2}
-            >
-              <Text style={styles.text2}>SIGN UP</Text>
-            </LinearGradient>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.flex7} />
-      </View>
+        <TouchableOpacity>
+          <LinearGradient
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            colors={["#ffffff", "#ffffff"]}
+            style={styles.btn2}
+          >
+            <Text style={styles.text2}>SIGN UP</Text>
+          </LinearGradient>
+        </TouchableOpacity>
+      </KeyboardAvoidingView>
     );
   }
 }
@@ -105,40 +85,11 @@ export default class LoginScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 5
-  },
-  flex1: {
-    flex: 0.75,
+    padding: 20,
     justifyContent: "center",
     alignItems: "center"
   },
-  flex2: {
-    flex: 1
-  },
-  flex3: {
-    flex: 0.2,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  flex4: {
-    flex: 1,
-    justifyContent: "center"
-  },
-  flex5: {
-    flex: 0.1,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  flex6: {
-    flex: 1.3,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  flex7: {
-    flex: 0.2,
-    justifyContent: "center",
-    alignItems: "center"
-  },
+
   btn1: {
     borderRadius: 60,
     width: 183.23,
@@ -147,7 +98,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 10, height: 10 },
     shadowColor: "black",
     shadowOpacity: 1,
-    elevation: 3
+    elevation: 3,
+    marginTop: 20
   },
   btn2: {
     borderRadius: 60,
