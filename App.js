@@ -1,18 +1,18 @@
 import React from "react";
-
+import { StatusBar, View } from "react-native";
 import { createAppContainer, createStackNavigator } from "react-navigation";
 import IntroScreen from "./Screens/IntroScreen";
-import HomeScreen from "./Screens/HomeScreen";
+import Router from "./Screens/HomeRouter/router";
 import LoginScreen from "./Screens/LoginScreen";
 
 const StackNavigator = createStackNavigator(
   {
     IntroScreen: IntroScreen,
     LoginScreen: LoginScreen,
-    HomeScreen: HomeScreen
+    Router: Router
   },
   {
-    initialRouteName: "HomeScreen",
+    initialRouteName: "Router",
     defaultNavigationOptions: {
       header: null
     }
@@ -22,7 +22,12 @@ const StackNavigator = createStackNavigator(
 const AppContainer = createAppContainer(StackNavigator);
 
 const App = () => {
-  return <AppContainer />;
+  return (
+    <View style={{ flex: 1 }}>
+      <StatusBar backgroundColor="#fff" barStyle="dark-content" />
+      <AppContainer />
+    </View>
+  );
 };
 
 export default App;
