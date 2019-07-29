@@ -12,7 +12,7 @@ const StackNavigator = createStackNavigator(
     Router: Router
   },
   {
-    initialRouteName: "LoginScreen",
+    initialRouteName: "Router",
     defaultNavigationOptions: {
       header: null
     }
