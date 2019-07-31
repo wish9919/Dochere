@@ -4,7 +4,9 @@ import { View, Text, StyleSheet, Dimensions } from "react-native";
 //google-map
 import MapView from "react-native-maps";
 
-const { width, height } = Dimensions.get("window");
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
+const fontSize = Dimensions.get("window").fontScale;
 
 export default class MapViewHome extends Component {
   constructor(props) {
@@ -52,6 +54,22 @@ export default class MapViewHome extends Component {
             />
           ))}
         </MapView>
+        {/* <View style={{ flexDirection: "row" }}>
+          <View
+            style={{
+              backgroundColor: "red",
+              width: width / 2,
+              height: width / 2
+            }}
+          />
+          <View
+            style={{
+              backgroundColor: "blue",
+              width: width / 2,
+              height: width / 2
+            }}
+          />
+        </View> */}
       </View>
     );
   }

@@ -56,7 +56,7 @@ export default createMaterialBottomTabNavigator(
     }
   },
   {
-    initialRouteName: "HomeScreen",
+    initialRouteName: "CareScreen",
     activeTintColor: "#00C4FF",
     inactiveTintColor: "#2A2E43",
     shifting: true,
