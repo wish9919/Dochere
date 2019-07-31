@@ -114,7 +114,7 @@ export default class CareScreen extends Component {
     <View>
       <ListItem>
         <Left>
-          <View style={{ flex: 0.25, alignItems: "center" }}>
+          <View style={{ flex: 0.1, alignItems: "center" }}>
             <Icon
               style={{ color: "#00c4ff" }}
               solid
