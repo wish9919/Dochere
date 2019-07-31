@@ -135,7 +135,8 @@ export default class CareScreen extends Component {
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: "#FFF"
   },
   body: {
     flex: 1
