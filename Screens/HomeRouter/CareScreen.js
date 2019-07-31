@@ -111,7 +111,10 @@ export default class CareScreen extends Component {
                   color: "#484747",
                   fontFamily: "Segoe UI",
                   fontSize: 20,
-                  fontWeight: "600"
+                  fontWeight: "600",
+                  textShadowColor: "rgba(0, 0, 0, 0.16)",
+                  textShadowOffset: { width: 1, height: 0 },
+                  textShadowRadius: 4
                 }}
               >
                 {item.name}
@@ -121,7 +124,10 @@ export default class CareScreen extends Component {
                   color: "#818080",
                   fontFamily: "Segoe UI",
                   fontSize: 11,
-                  fontWeight: "400"
+                  fontWeight: "400",
+                  textShadowColor: "rgba(0, 0, 0, 0.16)",
+                  textShadowOffset: { width: 1, height: 0 },
+                  textShadowRadius: 4
                 }}
               >
                 {item.description}

@@ -5,16 +5,18 @@ import IntroScreen from "./Screens/IntroScreen";
 import Router from "./Screens/HomeRouter/router";
 import LoginScreen from "./Screens/LoginScreen";
 import ListViewHome from "./Screens/HomeRouter/ListViewHome";
+import MyRecords from "./Screens/HomeRouter/MyRecords";
 
 const StackNavigator = createStackNavigator(
   {
     IntroScreen: IntroScreen,
     LoginScreen: LoginScreen,
     Router: Router,
-    ListViewHome: ListViewHome
+    ListViewHome: ListViewHome,
+    MyRecords: MyRecords
   },
   {
-    initialRouteName: "ListViewHome",
+    initialRouteName: "Router",
     defaultNavigationOptions: {
       header: null
     }

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-export default class MyRecords extends Component {
+export default class Account extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>MyRecords</Text>
+        <Text>My Records</Text>
       </View>
     );
   }

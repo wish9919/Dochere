@@ -132,7 +132,10 @@ export default class CareScreen extends Component {
                     color: "#434343",
                     fontFamily: "Gibson",
                     fontSize: 23,
-                    fontWeight: "400"
+                    fontWeight: "400",
+                    textShadowColor: "rgba(0, 0, 0, 0.16)",
+                    textShadowOffset: { width: 1, height: 0 },
+                    textShadowRadius: 4
                   }}
                 >
                   {item.name}
@@ -143,7 +146,10 @@ export default class CareScreen extends Component {
                       color: "#434343",
                       fontFamily: "Font Awesome 5 Free",
                       fontSize: 11,
-                      fontWeight: "400"
+                      fontWeight: "400",
+                      textShadowColor: "rgba(0, 0, 0, 0.16)",
+                      textShadowOffset: { width: 1, height: 0 },
+                      textShadowRadius: 4
                     }}
                   >
                     {item.description}
@@ -154,7 +160,10 @@ export default class CareScreen extends Component {
                       fontFamily: "Segoe UI",
                       fontSize: 11,
                       fontWeight: "400",
-                      marginLeft: 10
+                      marginLeft: 10,
+                      textShadowColor: "rgba(0, 0, 0, 0.16)",
+                      textShadowOffset: { width: 1, height: 0 },
+                      textShadowRadius: 4
                     }}
                   >
                     {item.rating}
