@@ -11,9 +11,10 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 console.disableYellowBox = true;
 
 //screens
+import MyRecords from "./MyRecords";
 import HomeScreen from "./HomeScreen";
 import CareScreen from "./CareScreen";
-import MyRecords from "./MyRecords";
+
 import Account from "./Account";
 
 export default createMaterialBottomTabNavigator(
@@ -56,7 +57,7 @@ export default createMaterialBottomTabNavigator(
     }
   },
   {
-    initialRouteName: "CareScreen",
+    initialRouteName: "MyRecords",
     activeTintColor: "#00C4FF",
     inactiveTintColor: "#2A2E43",
     shifting: true,

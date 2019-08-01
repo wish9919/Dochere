@@ -1,17 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, ScrollView, FlatList } from "react-native";
 
-//!uba inline style ghanna epa kela wenva hyganna amarui ne
-//TODO style external ghpan kollo harida?..
-//hehe... e mokda  bn?
-//ahh ewa gahanna epa kiylada kynne bn*?
-//*ow bn ehma nathuwa class ekak hdala eke wenama ghapan ara yatama atyenne bn
-//hri hri bn mn hadisiyata gahala thibuna ekama copy karala pahalata pahalata gahuwe
-//*eka awlk na math ehma thama ghanne ekalla passe ewa palleha ekata dana thamnge code eka clean & clear code ekak hdaganin
-//*ela kiri idapnko ehnm mn eka danam
-//*Flat list eka athule thwa flat list ekak dana eka poddak balapan aa
-//TODO ela kyla dennam, thava ekak ubata style sheet one wdhta hdaganna pluwan, me blpnko
-
 import {
   Header,
   Body,
@@ -24,13 +13,37 @@ import {
   ListItem,
   Content,
   Container,
-  Accordion
+  Accordion,
+  listItem as listItem2
 } from "native-base";
 
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 export default class CareScreen extends Component {
-  about = [
+  listItem = [
+    {
+      title: "About",
+      ico: "user",
+      a1: "Name",
+      a2:
+        "Sasith Warnakalkjxfdtghlijdrhtyglijuhtdrgiujdrhtiudrhgiutrghgiutrhgk",
+      b1: "birthday",
+      b2: "15/07/1996",
+      c1: "sex",
+      c2: "male",
+      d1: "+Add Ethnicity",
+      d2: "Add Language"
+    },
+    {
+      title: "Contact",
+      ico: "address-book"
+    },
+    {
+      title: "Health Metrics",
+      ico: "heartbeat"
+    }
+  ];
+  listItem2 = [
     {
       title: "About",
       ico: "user",
@@ -38,48 +51,18 @@ export default class CareScreen extends Component {
       a2: "Sasith Warnaka",
       b1: "birthday",
       b2: "15/07/1996",
-      c1: "Biological Sex",
-      c2: "Male",
-      d1: "Ethnicity",
-      d2: "+Add Ethnicity",
-      e1: "Add Language",
-      e2: "+Add Language"
-    }
-  ];
-
-  contact = [];
-
-  //TODO oka oya wdhata thunema wena wenama json hdapan
-  //adeee bn mn oka kra bn... hri gye na bn.. ara palleha danna therunne na idan pennannam
-
-  listItem = [
+      c1: "sex",
+      c2: "male",
+      d1: "+Add Ethnicity",
+      d2: "Add Language"
+    },
     {
       title: "Contact",
-      ico: "address-book",
-      a1: "Mobile",
-      a2: "+9477 123 1234",
-      b1: "Land",
-      b2: "+9481 256 2567",
-      c1: "Address",
-      c2: "F8, Kandy Rd, Doluwa, Gampola",
-      d1: "Empty",
-      d2: "Empty",
-      e1: "Empty",
-      e2: "Empty"
+      ico: "address-book"
     },
     {
       title: "Health Metrics",
-      ico: "heartbeat",
-      a1: "Name",
-      a2: "Sasith Warnaka",
-      b1: "birthday",
-      b2: "15/07/1996",
-      c1: "Biological Sex",
-      c2: "Male",
-      d1: "Ethnicity",
-      d2: "+Add Ethnicity",
-      e1: "Add Language",
-      e2: "+Add Language"
+      ico: "heartbeat"
     }
   ];
 
@@ -147,13 +130,12 @@ export default class CareScreen extends Component {
           </View>
 
           <FlatList
-            data={this.about}
-            renderItem={this.renderAbout}
+            data={this.listItem}
+            renderItem={this.renderList}
             keyExtractor={(item, index) => index.toString()}
           />
-
           <FlatList
-            data={this.listItem}
+            data={this.listItem2}
             renderItem={this.renderList}
             keyExtractor={(item, index) => index.toString()}
           />
@@ -161,14 +143,6 @@ export default class CareScreen extends Component {
       </View>
     );
   }
-
-  renderAbout = ({ item }) => (
-    <View>
-      <Text>{item.name}</Text>
-      <Text>{item.birthday}</Text>
-    </View>
-  );
-
   renderList = ({ item }) => (
     <View>
       <ListItem>
@@ -195,11 +169,10 @@ export default class CareScreen extends Component {
             >
               {item.title}
             </Text>
-            {/* 
-             details */}
+            {/* details */}
             <View>
               <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1.3 }}>
+                <View style={{ flex: 1 }}>
                   <Text
                     style={{
                       textShadowColor: "rgba(0, 0, 0, 0.16)",
@@ -231,7 +204,7 @@ export default class CareScreen extends Component {
                 </View>
               </View>
               <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1.3 }}>
+                <View style={{ flex: 1 }}>
                   <Text
                     style={{
                       textShadowColor: "rgba(0, 0, 0, 0.16)",
@@ -259,102 +232,6 @@ export default class CareScreen extends Component {
                     }}
                   >
                     {item.b2}
-                  </Text>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1.3 }}>
-                  <Text
-                    style={{
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 1, height: 0 },
-                      textShadowRadius: 4,
-                      color: "#818080",
-                      fontFamily: "Helvetica",
-                      fontSize: 17,
-                      fontWeight: "400"
-                    }}
-                  >
-                    {item.c1}
-                  </Text>
-                </View>
-                <View style={{ flex: 2 }}>
-                  <Text
-                    style={{
-                      color: "#2a2e43",
-                      fontFamily: "Font Awesome 5 Free",
-                      fontSize: 17,
-                      fontWeight: "400",
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 1, height: 0 },
-                      textShadowRadius: 4
-                    }}
-                  >
-                    {item.c2}
-                  </Text>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1.3 }}>
-                  <Text
-                    style={{
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 1, height: 0 },
-                      textShadowRadius: 4,
-                      color: "#818080",
-                      fontFamily: "Helvetica",
-                      fontSize: 17,
-                      fontWeight: "400"
-                    }}
-                  >
-                    {item.d1}
-                  </Text>
-                </View>
-                <View style={{ flex: 2 }}>
-                  <Text
-                    style={{
-                      color: "#2a2e43",
-                      fontFamily: "Font Awesome 5 Free",
-                      fontSize: 17,
-                      fontWeight: "400",
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 1, height: 0 },
-                      textShadowRadius: 4
-                    }}
-                  >
-                    {item.d2}
-                  </Text>
-                </View>
-              </View>
-              <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1.3 }}>
-                  <Text
-                    style={{
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 1, height: 0 },
-                      textShadowRadius: 4,
-                      color: "#818080",
-                      fontFamily: "Helvetica",
-                      fontSize: 17,
-                      fontWeight: "400"
-                    }}
-                  >
-                    {item.e1}
-                  </Text>
-                </View>
-                <View style={{ flex: 2 }}>
-                  <Text
-                    style={{
-                      color: "#2a2e43",
-                      fontFamily: "Font Awesome 5 Free",
-                      fontSize: 17,
-                      fontWeight: "400",
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 1, height: 0 },
-                      textShadowRadius: 4
-                    }}
-                  >
-                    {item.e2}
                   </Text>
                 </View>
               </View>
