@@ -97,7 +97,7 @@ export default class CareScreen extends Component {
       <List>
         <ListItem>
           <Left>
-            <View style={{ flex: 0.25, alignItems: "center" }}>
+            <View style={styles.listItemLeft}>
               <Icon
                 style={{ color: "#00c4ff" }}
                 solid
@@ -106,32 +106,8 @@ export default class CareScreen extends Component {
               />
             </View>
             <Body>
-              <Text
-                style={{
-                  color: "#484747",
-                  fontFamily: "Segoe UI",
-                  fontSize: 20,
-                  fontWeight: "600",
-                  textShadowColor: "rgba(0, 0, 0, 0.16)",
-                  textShadowOffset: { width: 1, height: 0 },
-                  textShadowRadius: 4
-                }}
-              >
-                {item.name}
-              </Text>
-              <Text
-                style={{
-                  color: "#818080",
-                  fontFamily: "Segoe UI",
-                  fontSize: 11,
-                  fontWeight: "400",
-                  textShadowColor: "rgba(0, 0, 0, 0.16)",
-                  textShadowOffset: { width: 1, height: 0 },
-                  textShadowRadius: 4
-                }}
-              >
-                {item.description}
-              </Text>
+              <Text style={styles.listItemBodyText}>{item.name}</Text>
+              <Text style={listItemBodyTextDesc}>{item.description}</Text>
             </Body>
           </Left>
         </ListItem>
@@ -146,5 +122,24 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 1
+  },
+  listItemLeft: { flex: 0.25, alignItems: "center" },
+  listItemBodyText: {
+    color: "#484747",
+    fontFamily: "Segoe UI",
+    fontSize: 20,
+    fontWeight: "600",
+    textShadowColor: "rgba(0, 0, 0, 0.16)",
+    textShadowOffset: { width: 1, height: 0 },
+    textShadowRadius: 4
+  },
+  listItemBodyTextDesc: {
+    color: "#818080",
+    fontFamily: "Segoe UI",
+    fontSize: 11,
+    fontWeight: "400",
+    textShadowColor: "rgba(0, 0, 0, 0.16)",
+    textShadowOffset: { width: 1, height: 0 },
+    textShadowRadius: 4
   }
 });

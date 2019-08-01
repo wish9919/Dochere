@@ -1,16 +1,8 @@
+//! meke bn renderItems wena wenama ghuwe na habai flatlist 3ka ghuwa. mkda uba name ehma label tika JSON eke ghla thibba nisa danata ohma tyla awlk unoth ghamu wenama...
+//TODO mchn mathk krla uba styles ghaddi external ghpan aa nattam ubtama epa wei..
+
 import React, { Component } from "react";
 import { View, Text, StyleSheet, ScrollView, FlatList } from "react-native";
-
-//!uba inline style ghanna epa kela wenva hyganna amarui ne
-//TODO style external ghpan kollo harida?..
-//hehe... e mokda  bn?
-//ahh ewa gahanna epa kiylada kynne bn*?
-//*ow bn ehma nathuwa class ekak hdala eke wenama ghapan ara yatama atyenne bn
-//hri hri bn mn hadisiyata gahala thibuna ekama copy karala pahalata pahalata gahuwe
-//*eka awlk na math ehma thama ghanne ekalla passe ewa palleha ekata dana thamnge code eka clean & clear code ekak hdaganin
-//*ela kiri idapnko ehnm mn eka danam
-//*Flat list eka athule thwa flat list ekak dana eka poddak balapan aa
-//TODO ela kyla dennam, thava ekak ubata style sheet one wdhta hdaganna pluwan, me blpnko
 
 import {
   Header,
@@ -47,12 +39,7 @@ export default class CareScreen extends Component {
     }
   ];
 
-  contact = [];
-
-  //TODO oka oya wdhata thunema wena wenama json hdapan
-  //adeee bn mn oka kra bn... hri gye na bn.. ara palleha danna therunne na idan pennannam
-
-  listItem = [
+  contact = [
     {
       title: "Contact",
       ico: "address-book",
@@ -66,7 +53,10 @@ export default class CareScreen extends Component {
       d2: "Empty",
       e1: "Empty",
       e2: "Empty"
-    },
+    }
+  ];
+
+  health = [
     {
       title: "Health Metrics",
       ico: "heartbeat",
@@ -103,7 +93,7 @@ export default class CareScreen extends Component {
           <View>
             <CardItem>
               <Left>
-                <View style={{ width: "35%", alignItems: "center" }}>
+                <View style={styles.cardItemLeft}>
                   <Icon
                     style={{ color: "#00c4ff" }}
                     solid
@@ -112,35 +102,8 @@ export default class CareScreen extends Component {
                   />
                 </View>
                 <Body>
-                  <Text
-                    style={{
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 3, height: 0 },
-                      textShadowRadius: 6,
-                      color: "#2a2e43",
-                      fontFamily: "Gibson",
-                      fontSize: 24,
-                      fontWeight: "600"
-                    }}
-                  >
-                    Sasith Warnaka
-                  </Text>
-                  <Text
-                    style={{
-                      color: "#4a19e7",
-
-                      fontWeight: "400",
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 3, height: 0 },
-                      textShadowRadius: 6,
-
-                      fontFamily: "Gibson",
-                      fontSize: 14,
-                      fontWeight: "400"
-                    }}
-                  >
-                    Edit Profile
-                  </Text>
+                  <Text style={styles.cardItemBodyText}>Sasith Warnaka</Text>
+                  <Text style={styles.editProfileText}>Edit Profile</Text>
                 </Body>
               </Left>
             </CardItem>
@@ -148,12 +111,18 @@ export default class CareScreen extends Component {
 
           <FlatList
             data={this.about}
-            renderItem={this.renderAbout}
+            renderItem={this.renderList}
             keyExtractor={(item, index) => index.toString()}
           />
 
           <FlatList
-            data={this.listItem}
+            data={this.contact}
+            renderItem={this.renderList}
+            keyExtractor={(item, index) => index.toString()}
+          />
+
+          <FlatList
+            data={this.health}
             renderItem={this.renderList}
             keyExtractor={(item, index) => index.toString()}
           />
@@ -161,13 +130,6 @@ export default class CareScreen extends Component {
       </View>
     );
   }
-
-  renderAbout = ({ item }) => (
-    <View>
-      <Text>{item.name}</Text>
-      <Text>{item.birthday}</Text>
-    </View>
-  );
 
   renderList = ({ item }) => (
     <View>
@@ -182,180 +144,48 @@ export default class CareScreen extends Component {
             />
           </View>
           <Body>
-            <Text
-              style={{
-                color: "#484747",
-                fontFamily: "Segoe UI",
-                fontSize: 20,
-                fontWeight: "600",
-                textShadowColor: "rgba(0, 0, 0, 0.16)",
-                textShadowOffset: { width: 1, height: 0 },
-                textShadowRadius: 4
-              }}
-            >
-              {item.title}
-            </Text>
+            <Text style={styles.renderItemTitile}>{item.title}</Text>
             {/* 
              details */}
             <View>
               <View style={{ flexDirection: "row" }}>
                 <View style={{ flex: 1.3 }}>
-                  <Text
-                    style={{
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 1, height: 0 },
-                      textShadowRadius: 4,
-                      color: "#818080",
-                      fontFamily: "Helvetica",
-                      fontSize: 17,
-                      fontWeight: "400"
-                    }}
-                  >
-                    {item.a1}
-                  </Text>
+                  <Text style={styles.renderItemLabel}>{item.a1}</Text>
                 </View>
                 <View style={{ flex: 2 }}>
-                  <Text
-                    style={{
-                      color: "#2a2e43",
-                      fontFamily: "Font Awesome 5 Free",
-                      fontSize: 17,
-                      fontWeight: "400",
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 1, height: 0 },
-                      textShadowRadius: 4
-                    }}
-                  >
-                    {item.a2}
-                  </Text>
+                  <Text style={styles.renderItemValue}>{item.a2}</Text>
                 </View>
               </View>
               <View style={{ flexDirection: "row" }}>
                 <View style={{ flex: 1.3 }}>
-                  <Text
-                    style={{
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 1, height: 0 },
-                      textShadowRadius: 4,
-                      color: "#818080",
-                      fontFamily: "Helvetica",
-                      fontSize: 17,
-                      fontWeight: "400"
-                    }}
-                  >
-                    {item.b1}
-                  </Text>
+                  <Text style={styles.renderItemLabel}>{item.b1}</Text>
                 </View>
                 <View style={{ flex: 2 }}>
-                  <Text
-                    style={{
-                      color: "#2a2e43",
-                      fontFamily: "Font Awesome 5 Free",
-                      fontSize: 17,
-                      fontWeight: "400",
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 1, height: 0 },
-                      textShadowRadius: 4
-                    }}
-                  >
-                    {item.b2}
-                  </Text>
+                  <Text style={styles.renderItemValue}>{item.b2}</Text>
                 </View>
               </View>
               <View style={{ flexDirection: "row" }}>
                 <View style={{ flex: 1.3 }}>
-                  <Text
-                    style={{
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 1, height: 0 },
-                      textShadowRadius: 4,
-                      color: "#818080",
-                      fontFamily: "Helvetica",
-                      fontSize: 17,
-                      fontWeight: "400"
-                    }}
-                  >
-                    {item.c1}
-                  </Text>
+                  <Text style={styles.renderItemLabel}>{item.c1}</Text>
                 </View>
                 <View style={{ flex: 2 }}>
-                  <Text
-                    style={{
-                      color: "#2a2e43",
-                      fontFamily: "Font Awesome 5 Free",
-                      fontSize: 17,
-                      fontWeight: "400",
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 1, height: 0 },
-                      textShadowRadius: 4
-                    }}
-                  >
-                    {item.c2}
-                  </Text>
+                  <Text style={styles.renderItemValue}>{item.c2}</Text>
                 </View>
               </View>
               <View style={{ flexDirection: "row" }}>
                 <View style={{ flex: 1.3 }}>
-                  <Text
-                    style={{
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 1, height: 0 },
-                      textShadowRadius: 4,
-                      color: "#818080",
-                      fontFamily: "Helvetica",
-                      fontSize: 17,
-                      fontWeight: "400"
-                    }}
-                  >
-                    {item.d1}
-                  </Text>
+                  <Text style={styles.renderItemLabel}>{item.d1}</Text>
                 </View>
                 <View style={{ flex: 2 }}>
-                  <Text
-                    style={{
-                      color: "#2a2e43",
-                      fontFamily: "Font Awesome 5 Free",
-                      fontSize: 17,
-                      fontWeight: "400",
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 1, height: 0 },
-                      textShadowRadius: 4
-                    }}
-                  >
-                    {item.d2}
-                  </Text>
+                  <Text style={styles.renderItemValue}>{item.d2}</Text>
                 </View>
               </View>
               <View style={{ flexDirection: "row" }}>
                 <View style={{ flex: 1.3 }}>
-                  <Text
-                    style={{
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 1, height: 0 },
-                      textShadowRadius: 4,
-                      color: "#818080",
-                      fontFamily: "Helvetica",
-                      fontSize: 17,
-                      fontWeight: "400"
-                    }}
-                  >
-                    {item.e1}
-                  </Text>
+                  <Text style={styles.renderItemLabel}>{item.e1}</Text>
                 </View>
                 <View style={{ flex: 2 }}>
-                  <Text
-                    style={{
-                      color: "#2a2e43",
-                      fontFamily: "Font Awesome 5 Free",
-                      fontSize: 17,
-                      fontWeight: "400",
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 1, height: 0 },
-                      textShadowRadius: 4
-                    }}
-                  >
-                    {item.e2}
-                  </Text>
+                  <Text style={styles.renderItemValue}>{item.e2}</Text>
                 </View>
               </View>
             </View>
@@ -372,5 +202,52 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 1
+  },
+  cardItemLeft: { width: "35%", alignItems: "center" },
+  cardItemBodyText: {
+    textShadowColor: "rgba(0, 0, 0, 0.16)",
+    textShadowOffset: { width: 3, height: 0 },
+    textShadowRadius: 6,
+    color: "#2a2e43",
+    fontFamily: "Gibson",
+    fontSize: 24,
+    fontWeight: "600"
+  },
+  editProfileText: {
+    color: "#4a19e7",
+    fontWeight: "400",
+    textShadowColor: "rgba(0, 0, 0, 0.16)",
+    textShadowOffset: { width: 3, height: 0 },
+    textShadowRadius: 6,
+    fontFamily: "Gibson",
+    fontSize: 14,
+    fontWeight: "400"
+  },
+  renderItemTitile: {
+    color: "#484747",
+    fontFamily: "Segoe UI",
+    fontSize: 20,
+    fontWeight: "600",
+    textShadowColor: "rgba(0, 0, 0, 0.16)",
+    textShadowOffset: { width: 1, height: 0 },
+    textShadowRadius: 4
+  },
+  renderItemLabel: {
+    textShadowColor: "rgba(0, 0, 0, 0.16)",
+    textShadowOffset: { width: 1, height: 0 },
+    textShadowRadius: 4,
+    color: "#818080",
+    fontFamily: "Helvetica",
+    fontSize: 17,
+    fontWeight: "400"
+  },
+  renderItemValue: {
+    color: "#2a2e43",
+    fontFamily: "Font Awesome 5 Free",
+    fontSize: 17,
+    fontWeight: "400",
+    textShadowColor: "rgba(0, 0, 0, 0.16)",
+    textShadowOffset: { width: 1, height: 0 },
+    textShadowRadius: 4
   }
 });

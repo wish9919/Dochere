@@ -107,15 +107,7 @@ export default class CareScreen extends Component {
   renderList = ({ item }) => (
     <View>
       <List>
-        <Card
-          style={{
-            marginLeft: 9,
-            marginRight: 9,
-            shadowOffset: { width: 10, height: 10 },
-            shadowColor: "black",
-            shadowOpacity: 10
-          }}
-        >
+        <Card style={styles.CardItem}>
           <CardItem>
             <Left>
               <View style={{ flex: 0.25, alignItems: "center" }}>
@@ -127,47 +119,10 @@ export default class CareScreen extends Component {
                 />
               </View>
               <Body>
-                <Text
-                  style={{
-                    color: "#434343",
-                    fontFamily: "Gibson",
-                    fontSize: 23,
-                    fontWeight: "400",
-                    textShadowColor: "rgba(0, 0, 0, 0.16)",
-                    textShadowOffset: { width: 1, height: 0 },
-                    textShadowRadius: 4
-                  }}
-                >
-                  {item.name}
-                </Text>
+                <Text style={styles.bodyTextName}>{item.name}</Text>
                 <View style={styles.row}>
-                  <Text
-                    style={{
-                      color: "#434343",
-                      fontFamily: "Font Awesome 5 Free",
-                      fontSize: 11,
-                      fontWeight: "400",
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 1, height: 0 },
-                      textShadowRadius: 4
-                    }}
-                  >
-                    {item.description}
-                  </Text>
-                  <Text
-                    style={{
-                      color: "#818080",
-                      fontFamily: "Segoe UI",
-                      fontSize: 11,
-                      fontWeight: "400",
-                      marginLeft: 10,
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 1, height: 0 },
-                      textShadowRadius: 4
-                    }}
-                  >
-                    {item.rating}
-                  </Text>
+                  <Text style={bodyTextDesc}>{item.description}</Text>
+                  <Text style={bodyTextRate}>{item.rating}</Text>
                   <View style={{ flex: 0.25, marginLeft: 3, marginTop: 1 }}>
                     <Icon
                       style={{ color: "#ffa500" }}
@@ -187,17 +142,7 @@ export default class CareScreen extends Component {
                       size={9.5}
                     />
                   </View>
-                  <Text
-                    style={{
-                      color: "#818080",
-                      fontFamily: "Segoe UI",
-                      fontSize: 11,
-                      fontWeight: "400",
-                      marginLeft: 6
-                    }}
-                  >
-                    {item.status}
-                  </Text>
+                  <Text style={styles.itemStatus}>{item.status}</Text>
                 </View>
               </Body>
             </Left>
@@ -217,5 +162,47 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: "row"
+  },
+  CardItem: {
+    marginLeft: 9,
+    marginRight: 9,
+    shadowOffset: { width: 10, height: 10 },
+    shadowColor: "black",
+    shadowOpacity: 10
+  },
+  bodyTextName: {
+    color: "#434343",
+    fontFamily: "Gibson",
+    fontSize: 23,
+    fontWeight: "400",
+    textShadowColor: "rgba(0, 0, 0, 0.16)",
+    textShadowOffset: { width: 1, height: 0 },
+    textShadowRadius: 4
+  },
+  bodyTextDesc: {
+    color: "#434343",
+    fontFamily: "Font Awesome 5 Free",
+    fontSize: 11,
+    fontWeight: "400",
+    textShadowColor: "rgba(0, 0, 0, 0.16)",
+    textShadowOffset: { width: 1, height: 0 },
+    textShadowRadius: 4
+  },
+  bodyTextRate: {
+    color: "#818080",
+    fontFamily: "Segoe UI",
+    fontSize: 11,
+    fontWeight: "400",
+    marginLeft: 10,
+    textShadowColor: "rgba(0, 0, 0, 0.16)",
+    textShadowOffset: { width: 1, height: 0 },
+    textShadowRadius: 4
+  },
+  itemStatus: {
+    color: "#818080",
+    fontFamily: "Segoe UI",
+    fontSize: 11,
+    fontWeight: "400",
+    marginLeft: 6
   }
 });
