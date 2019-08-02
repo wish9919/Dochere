@@ -6,7 +6,7 @@ import Router from "./Screens/HomeRouter/router";
 import LoginScreen from "./Screens/LoginScreen";
 import ListViewHome from "./Screens/HomeRouter/ListViewHome";
 import MyRecords from "./Screens/HomeRouter/MyRecords";
-import Test from "./Screens/Test";
+import ShortcutScreen from "./Screens/HomeRouter/ShortcutScreen";
 
 const StackNavigator = createStackNavigator(
   {
@@ -15,7 +15,7 @@ const StackNavigator = createStackNavigator(
     Router: Router,
     ListViewHome: ListViewHome,
     MyRecords: MyRecords,
-    Test: Test
+    ShortcutScreen: ShortcutScreen
   },
   {
     initialRouteName: "Router",

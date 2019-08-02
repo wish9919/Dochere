@@ -57,7 +57,7 @@ export default createMaterialBottomTabNavigator(
     }
   },
   {
-    initialRouteName: "MyRecords",
+    initialRouteName: "HomeScreen",
     activeTintColor: "#00C4FF",
     inactiveTintColor: "#2A2E43",
     shifting: true,
