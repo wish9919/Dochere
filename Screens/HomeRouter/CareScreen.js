@@ -107,7 +107,9 @@ export default class CareScreen extends Component {
             </View>
             <Body>
               <Text style={styles.listItemBodyText}>{item.name}</Text>
-              <Text style={listItemBodyTextDesc}>{item.description}</Text>
+              <Text style={styles.listItemBodyTextDesc}>
+                {item.description}
+              </Text>
             </Body>
           </Left>
         </ListItem>

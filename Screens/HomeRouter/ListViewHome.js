@@ -121,8 +121,8 @@ export default class CareScreen extends Component {
               <Body>
                 <Text style={styles.bodyTextName}>{item.name}</Text>
                 <View style={styles.row}>
-                  <Text style={bodyTextDesc}>{item.description}</Text>
-                  <Text style={bodyTextRate}>{item.rating}</Text>
+                  <Text style={styles.bodyTextDesc}>{item.description}</Text>
+                  <Text style={styles.bodyTextRate}>{item.rating}</Text>
                   <View style={{ flex: 0.25, marginLeft: 3, marginTop: 1 }}>
                     <Icon
                       style={{ color: "#ffa500" }}
