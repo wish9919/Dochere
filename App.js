@@ -18,7 +18,7 @@ const StackNavigator = createStackNavigator(
     ShortcutScreen: ShortcutScreen
   },
   {
-    initialRouteName: "Router",
+    initialRouteName: "ShortcutScreen",
     defaultNavigationOptions: {
       header: null
     }

@@ -15,6 +15,13 @@ import LinearGradient from "react-native-linear-gradient";
 import Path from "./Assets/path";
 
 export default class LoginScreen extends Component {
+  Navi1 = () => {
+    this.props.navigation.navigate("Router");
+  };
+  Navi2 = () => {
+    this.props.navigation.navigate("IntroScreen");
+  };
+
   render() {
     return (
       <KeyboardAvoidingView style={styles.container}>
@@ -54,7 +61,7 @@ export default class LoginScreen extends Component {
           />
         </Item>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={this.Navi1}>
           <LinearGradient
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
@@ -67,7 +74,7 @@ export default class LoginScreen extends Component {
         <View>
           <Text style={styles.or}>OR</Text>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={this.Navi2}>
           <LinearGradient
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}

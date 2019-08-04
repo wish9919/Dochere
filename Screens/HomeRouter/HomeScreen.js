@@ -52,7 +52,7 @@ export default class HomeScreen extends Component {
     return (
       <View style={{ flex: 1 }}>
         <Header
-          style={{ backgroundColor: "#fff" }}
+          style={{ backgroundColor: "#fff", marginTop: 25 }}
           iosBarStyle="dark-content"
           androidStatusBarColor="#fff"
         >

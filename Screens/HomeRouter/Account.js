@@ -11,10 +11,12 @@ import {
   Thumbnail,
   List,
   ListItem,
-  Content
+  Content,
+  Button as Btn
 } from "native-base";
 
 import Icon from "react-native-vector-icons/FontAwesome5";
+import { Button } from "react-native-paper";
 
 export default class CareScreen extends Component {
   listItem = [
@@ -43,7 +45,7 @@ export default class CareScreen extends Component {
     return (
       <View style={styles.container}>
         <Header
-          style={{ backgroundColor: "#fff" }}
+          style={{ backgroundColor: "#fff", marginTop: 30 }}
           iosBarStyle="dark-content"
           androidStatusBarColor="#fff"
         >

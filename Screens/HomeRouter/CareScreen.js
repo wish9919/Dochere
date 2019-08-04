@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, ScrollView, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  FlatList,
+  StatusBar
+} from "react-native";
 
 import {
   Header,
@@ -69,8 +76,13 @@ export default class CareScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar
+          translucent={true}
+          barStyle="dark-content"
+          backgroundColor="transparent"
+        />
         <Header
-          style={{ backgroundColor: "#fff" }}
+          style={{ backgroundColor: "#fff", marginTop: 30 }}
           iosBarStyle="dark-content"
           androidStatusBarColor="#fff"
         >

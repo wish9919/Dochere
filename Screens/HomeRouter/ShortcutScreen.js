@@ -34,16 +34,20 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 
 export default class CareScreen extends Component {
+  Navi1 = () => {
+    this.props.navigation.navigate("Router");
+  };
+
   render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
+          {/* <StatusBar hidden={true} /> */}
           <StatusBar
             translucent={true}
             barStyle="dark-content"
             backgroundColor="transparent"
           />
-
           <ScrollView style={styles.body}>
             <View>
               <LinearGradient
@@ -52,11 +56,11 @@ export default class CareScreen extends Component {
                 colors={["#00c4ff", "#00ff92"]}
                 style={{ flex: 1 }}
               >
-                <View>
+                <SafeAreaView>
                   <View
                     style={{
                       height: 40,
-                      marginTop: 30,
+                      marginTop: 40,
                       flexDirection: "row"
                     }}
                   >
@@ -136,7 +140,7 @@ export default class CareScreen extends Component {
                           marginBottom: 5
                         }}
                       >
-                        <View style={{}}>
+                        <View>
                           <Text style={styles.txt1}> You Have</Text>
                         </View>
                         <View style={{ flex: 1, marginLeft: 5 }}>
@@ -183,9 +187,10 @@ export default class CareScreen extends Component {
                       <Icon name="user-circle" size={80} color="#fff" />
                     </View>
                   </View>
-                </View>
+                </SafeAreaView>
               </LinearGradient>
-              <View style={{ height: 500 }}>
+
+              <View style={{ height: "100%" }}>
                 <View>
                   <Text
                     style={{
@@ -207,9 +212,9 @@ export default class CareScreen extends Component {
                         marginRight: 10
                       }}
                     >
-                      <Button style={styles.btn1}>
+                      <TouchableOpacity style={styles.btn1}>
                         <Text style={styles.text1}>Assess my Symptoms</Text>
-                      </Button>
+                      </TouchableOpacity>
                     </View>
                     <View
                       style={{
@@ -218,12 +223,15 @@ export default class CareScreen extends Component {
                         marginLeft: 10
                       }}
                     >
-                      <Button style={styles.btn1}>
+                      <TouchableOpacity
+                        style={styles.btn1}
+                        onPress={this.Navi1}
+                      >
                         <Text style={styles.text1}>Talk to a Doctor</Text>
-                      </Button>
+                      </TouchableOpacity>
                     </View>
                   </View>
-                  <View style={{ flexDirection: "row" }}>
+                  <View style={{ flexDirection: "row", padding: 5 }}>
                     <View
                       style={{
                         flex: 1,
@@ -231,9 +239,9 @@ export default class CareScreen extends Component {
                         marginRight: 10
                       }}
                     >
-                      <Button style={styles.btn1}>
+                      <TouchableOpacity style={styles.btn1}>
                         <Text style={styles.text1}>Post a health Question</Text>
-                      </Button>
+                      </TouchableOpacity>
                     </View>
                     <View
                       style={{
@@ -242,14 +250,15 @@ export default class CareScreen extends Component {
                         marginLeft: 10
                       }}
                     >
-                      <Button style={styles.btn1}>
+                      <TouchableOpacity style={styles.btn1}>
                         <Text style={styles.text1}>Post & News</Text>
-                      </Button>
+                      </TouchableOpacity>
                     </View>
                   </View>
                 </View>
               </View>
             </View>
+
             <View
               style={{
                 flex: 1,
@@ -259,7 +268,7 @@ export default class CareScreen extends Component {
               <View
                 style={{
                   height: 40,
-                  marginTop: 200,
+                  marginTop: 210,
                   flexDirection: "row",
                   position: "relative",
                   width: "100%",
@@ -326,8 +335,7 @@ export default class CareScreen extends Component {
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "white"
+    flex: 1
   },
   body: {
     flex: 1

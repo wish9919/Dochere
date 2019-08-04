@@ -14,7 +14,7 @@ console.disableYellowBox = true;
 import MyRecords from "./MyRecords";
 import HomeScreen from "./HomeScreen";
 import CareScreen from "./CareScreen";
-
+import ShortcutScreen from "./ShortcutScreen";
 import Account from "./Account";
 
 export default createMaterialBottomTabNavigator(
@@ -28,6 +28,7 @@ export default createMaterialBottomTabNavigator(
         )
       }
     },
+
     CareScreen: {
       screen: CareScreen,
       navigationOptions: {
@@ -37,6 +38,15 @@ export default createMaterialBottomTabNavigator(
         )
       }
     },
+    // ShortcutScreen: {
+    //   screen: ShortcutScreen,
+    //   navigationOptions: {
+    //     tabBarLabel: "Shortcut",
+    //     tabBarIcon: ({ tintColor }) => (
+    //       <Icon name="home" size={23} color={tintColor} />
+    //     )
+    //   }
+    // },
     MyRecords: {
       screen: MyRecords,
       navigationOptions: {
