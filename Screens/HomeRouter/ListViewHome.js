@@ -15,6 +15,7 @@ import {
 } from "native-base";
 
 import Icon from "react-native-vector-icons/FontAwesome5";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default class CareScreen extends Component {
   listItem = [
@@ -105,51 +106,53 @@ export default class CareScreen extends Component {
     );
   }
   renderList = ({ item }) => (
-    <View>
-      <List>
-        <Card style={styles.CardItem}>
-          <CardItem>
-            <Left>
-              <View style={{ flex: 0.25, alignItems: "center" }}>
-                <Icon
-                  style={{ color: "#00c4ff" }}
-                  solid
-                  name={item.ico}
-                  size={50}
-                />
-              </View>
-              <Body>
-                <Text style={styles.bodyTextName}>{item.name}</Text>
-                <View style={styles.row}>
-                  <Text style={styles.bodyTextDesc}>{item.description}</Text>
-                  <Text style={styles.bodyTextRate}>{item.rating}</Text>
-                  <View style={{ flex: 0.25, marginLeft: 3, marginTop: 1 }}>
-                    <Icon
-                      style={{ color: "#ffa500" }}
-                      solid
-                      name={item.star}
-                      size={11}
-                    />
-                  </View>
+    <TouchableOpacity>
+      <View>
+        <List>
+          <Card style={styles.CardItem}>
+            <CardItem>
+              <Left>
+                <View style={{ flex: 0.25, alignItems: "center" }}>
+                  <Icon
+                    style={{ color: "#00c4ff" }}
+                    solid
+                    name={item.ico}
+                    size={50}
+                  />
                 </View>
+                <Body>
+                  <Text style={styles.bodyTextName}>{item.name}</Text>
+                  <View style={styles.row}>
+                    <Text style={styles.bodyTextDesc}>{item.description}</Text>
+                    <Text style={styles.bodyTextRate}>{item.rating}</Text>
+                    <View style={{ flex: 0.25, marginLeft: 3, marginTop: 1 }}>
+                      <Icon
+                        style={{ color: "#ffa500" }}
+                        solid
+                        name={item.star}
+                        size={11}
+                      />
+                    </View>
+                  </View>
 
-                <View style={styles.row}>
-                  <View style={{ marginTop: 2 }}>
-                    <Icon
-                      style={{ color: "#e5e500" }}
-                      solid
-                      name={item.statusico}
-                      size={9.5}
-                    />
+                  <View style={styles.row}>
+                    <View style={{ marginTop: 2 }}>
+                      <Icon
+                        style={{ color: "#e5e500" }}
+                        solid
+                        name={item.statusico}
+                        size={9.5}
+                      />
+                    </View>
+                    <Text style={styles.itemStatus}>{item.status}</Text>
                   </View>
-                  <Text style={styles.itemStatus}>{item.status}</Text>
-                </View>
-              </Body>
-            </Left>
-          </CardItem>
-        </Card>
-      </List>
-    </View>
+                </Body>
+              </Left>
+            </CardItem>
+          </Card>
+        </List>
+      </View>
+    </TouchableOpacity>
   );
 }
 const styles = StyleSheet.create({

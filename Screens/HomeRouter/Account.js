@@ -17,6 +17,7 @@ import {
 
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { Button } from "react-native-paper";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default class CareScreen extends Component {
   listItem = [
@@ -62,12 +63,14 @@ export default class CareScreen extends Component {
             <CardItem>
               <Left>
                 <View style={{ width: "35%", alignItems: "center" }}>
-                  <Icon
-                    style={{ color: "#00c4ff" }}
-                    solid
-                    name="user-circle"
-                    size={110}
-                  />
+                  <TouchableOpacity>
+                    <Icon
+                      style={{ color: "#00c4ff" }}
+                      solid
+                      name="user-circle"
+                      size={110}
+                    />
+                  </TouchableOpacity>
                 </View>
                 <Body>
                   <Text
@@ -83,22 +86,24 @@ export default class CareScreen extends Component {
                   >
                     Sasith Warnaka
                   </Text>
-                  <Text
-                    style={{
-                      color: "#4a19e7",
+                  <TouchableOpacity>
+                    <Text
+                      style={{
+                        color: "#4a19e7",
 
-                      fontWeight: "400",
-                      textShadowColor: "rgba(0, 0, 0, 0.16)",
-                      textShadowOffset: { width: 3, height: 0 },
-                      textShadowRadius: 6,
+                        fontWeight: "400",
+                        textShadowColor: "rgba(0, 0, 0, 0.16)",
+                        textShadowOffset: { width: 3, height: 0 },
+                        textShadowRadius: 6,
 
-                      fontFamily: "Gibson",
-                      fontSize: 14,
-                      fontWeight: "400"
-                    }}
-                  >
-                    Edit Profile
-                  </Text>
+                        fontFamily: "Gibson",
+                        fontSize: 14,
+                        fontWeight: "400"
+                      }}
+                    >
+                      Edit Profile
+                    </Text>
+                  </TouchableOpacity>
                 </Body>
               </Left>
             </CardItem>
@@ -113,35 +118,37 @@ export default class CareScreen extends Component {
     );
   }
   renderList = ({ item }) => (
-    <View>
-      <ListItem>
-        <Left>
-          <View style={{ flex: 0.1, alignItems: "center" }}>
-            <Icon
-              style={{ color: "#00c4ff" }}
-              solid
-              name={item.ico}
-              size={25}
-            />
-          </View>
-          <Body>
-            <Text
-              style={{
-                color: "#484747",
-                fontFamily: "Segoe UI",
-                fontSize: 20,
-                fontWeight: "600",
-                textShadowColor: "rgba(0, 0, 0, 0.16)",
-                textShadowOffset: { width: 1, height: 0 },
-                textShadowRadius: 4
-              }}
-            >
-              {item.name}
-            </Text>
-          </Body>
-        </Left>
-      </ListItem>
-    </View>
+    <TouchableOpacity>
+      <View>
+        <ListItem>
+          <Left>
+            <View style={{ flex: 0.1, alignItems: "center" }}>
+              <Icon
+                style={{ color: "#00c4ff" }}
+                solid
+                name={item.ico}
+                size={25}
+              />
+            </View>
+            <Body>
+              <Text
+                style={{
+                  color: "#484747",
+                  fontFamily: "Segoe UI",
+                  fontSize: 20,
+                  fontWeight: "600",
+                  textShadowColor: "rgba(0, 0, 0, 0.16)",
+                  textShadowOffset: { width: 1, height: 0 },
+                  textShadowRadius: 4
+                }}
+              >
+                {item.name}
+              </Text>
+            </Body>
+          </Left>
+        </ListItem>
+      </View>
+    </TouchableOpacity>
   );
 }
 const styles = StyleSheet.create({

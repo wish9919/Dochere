@@ -21,6 +21,7 @@ import {
 } from "native-base";
 
 import Icon from "react-native-vector-icons/FontAwesome5";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default class CareScreen extends Component {
   listItem = [
@@ -105,28 +106,30 @@ export default class CareScreen extends Component {
     );
   }
   renderList = ({ item }) => (
-    <View>
-      <List>
-        <ListItem>
-          <Left>
-            <View style={styles.listItemLeft}>
-              <Icon
-                style={{ color: "#00c4ff" }}
-                solid
-                name={item.ico}
-                size={50}
-              />
-            </View>
-            <Body>
-              <Text style={styles.listItemBodyText}>{item.name}</Text>
-              <Text style={styles.listItemBodyTextDesc}>
-                {item.description}
-              </Text>
-            </Body>
-          </Left>
-        </ListItem>
-      </List>
-    </View>
+    <TouchableOpacity>
+      <View>
+        <List>
+          <ListItem>
+            <Left>
+              <View style={styles.listItemLeft}>
+                <Icon
+                  style={{ color: "#00c4ff" }}
+                  solid
+                  name={item.ico}
+                  size={50}
+                />
+              </View>
+              <Body>
+                <Text style={styles.listItemBodyText}>{item.name}</Text>
+                <Text style={styles.listItemBodyTextDesc}>
+                  {item.description}
+                </Text>
+              </Body>
+            </Left>
+          </ListItem>
+        </List>
+      </View>
+    </TouchableOpacity>
   );
 }
 const styles = StyleSheet.create({

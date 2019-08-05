@@ -103,7 +103,9 @@ export default class CareScreen extends Component {
                 </View>
                 <Body>
                   <Text style={styles.cardItemBodyText}>Sasith Warnaka</Text>
-                  <Text style={styles.editProfileText}>Edit Profile</Text>
+                  <Text style={styles.editProfileText}>
+                    22 Years | 15/07/1999
+                  </Text>
                 </Body>
               </Left>
             </CardItem>
@@ -214,7 +216,7 @@ const styles = StyleSheet.create({
     fontWeight: "600"
   },
   editProfileText: {
-    color: "#4a19e7",
+    color: "#2A2E43",
     fontWeight: "400",
     textShadowColor: "rgba(0, 0, 0, 0.16)",
     textShadowOffset: { width: 3, height: 0 },
