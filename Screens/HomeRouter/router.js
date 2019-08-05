@@ -79,7 +79,8 @@ export default createMaterialBottomTabNavigator(
     inactiveTintColor: "#2A2E43",
     shifting: true,
     barStyle: {
-      backgroundColor: "#fff"
+      backgroundColor: "#fff",
+      height: 50
     }
   }
 );

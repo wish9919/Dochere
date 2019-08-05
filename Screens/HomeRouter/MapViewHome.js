@@ -9,6 +9,9 @@ import {
 
 //google-map
 import MapView from "react-native-maps";
+import Icon from "react-native-vector-icons/FontAwesome5";
+
+import ShortcutScreen from "./ShortcutScreen";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -44,6 +47,91 @@ export default class MapViewHome extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <View style={styles.tab3}>
+          <TouchableOpacity style={styles.buttoninnactive}>
+            <Icon
+              style={{ color: "#ffffff", margin: 2 }}
+              solid
+              name="phone"
+              size={36}
+            />
+            <Text style={styles.btntxt}>Call Doctor</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.buttonnactive}>
+            <Icon
+              style={{ color: "#ffffff", margin: 2 }}
+              solid
+              name="search-location"
+              size={36}
+            />
+            <Text style={styles.btntxt}>Nearby</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.buttoninnactive}>
+            <Icon
+              style={{ color: "#ffffff", margin: 2 }}
+              solid
+              name="shoe-prints"
+              size={36}
+            />
+            <Text style={styles.btntxt}>Home Visit</Text>
+          </TouchableOpacity>
+        </View>
+        <TouchableOpacity
+          onPress={this.Navi1}
+          style={{
+            width: 60,
+            height: 60,
+            position: "absolute",
+            backgroundColor: "#454f63",
+            alignContent: "center",
+            justifyContent: "center",
+            borderRadius: 35,
+            right: 10,
+            top: 10,
+            zIndex: 1
+          }}
+        >
+          <Icon
+            style={{
+              color: "#ffffff",
+              margin: 2,
+              textAlign: "center"
+            }}
+            solid
+            name="grip-horizontal"
+            size={36}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={this.Navi1}
+          style={{
+            width: 60,
+            height: 60,
+            position: "absolute",
+            alignContent: "center",
+            justifyContent: "center",
+            bottom: 95,
+            right: 10,
+            zIndex: 1,
+            shadowColor: "rgba(69, 91, 99, 0.1)",
+            shadowOffset: { width: 12, height: 0 },
+            shadowRadius: 16,
+            borderRadius: 12,
+            backgroundColor: "#ffffff"
+          }}
+        >
+          <Icon
+            style={{
+              color: "#454f63",
+              margin: 2,
+              textAlign: "center"
+            }}
+            solid
+            name="crosshairs"
+            size={36}
+          />
+        </TouchableOpacity>
+
         <MapView
           style={{ height: height, width: width }}
           region={{
@@ -85,5 +173,47 @@ export default class MapViewHome extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  tab3: {
+    backgroundColor: "red",
+    backgroundColor: "#2a2e43",
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "center",
+    position: "absolute",
+    zIndex: 1,
+    bottom: 10,
+    left: 70,
+    right: 70,
+    borderRadius: 20
+  },
+  buttoninnactive: {
+    width: 81,
+    height: 62,
+    borderRadius: 8,
+    backgroundColor: "#353a50",
+    marginTop: 8,
+    marginBottom: 8,
+    marginRight: 4,
+    marginLeft: 4,
+    alignItems: "center"
+  },
+  buttonnactive: {
+    width: 81,
+    height: 62,
+    borderRadius: 8,
+    backgroundColor: "#00c4ff",
+    marginTop: 8,
+    marginBottom: 8,
+    marginRight: 4,
+    marginLeft: 4,
+    alignItems: "center"
+  },
+  btntxt: {
+    color: "#ffffff",
+    fontFamily: "Gibson",
+    fontSize: 11,
+    fontWeight: "400",
+    textAlign: "center"
   }
 });
