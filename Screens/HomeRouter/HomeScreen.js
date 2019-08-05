@@ -78,13 +78,13 @@ export default class HomeScreen extends Component {
         <TouchableOpacity
           onPress={this.Navi1}
           style={{
-            width: 50,
-            height: 50,
+            width: 55,
+            height: 55,
             position: "absolute",
             backgroundColor: "#347aeb",
             alignContent: "center",
             justifyContent: "center",
-            borderRadius: 25,
+            borderRadius: 30,
             right: 10,
             bottom: 10
           }}

@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  TouchableOpacity
+} from "react-native";
 
 import { YellowBox } from "react-native";
 YellowBox.ignoreWarnings(["Warning: ReactNative.createElement"]);
@@ -66,6 +72,7 @@ export default createMaterialBottomTabNavigator(
       }
     }
   },
+
   {
     initialRouteName: "HomeScreen",
     activeTintColor: "#00C4FF",
