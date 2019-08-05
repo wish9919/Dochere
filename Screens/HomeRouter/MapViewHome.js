@@ -4,7 +4,8 @@ import {
   Text,
   StyleSheet,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
+  TextInput
 } from "react-native";
 
 //google-map
@@ -48,7 +49,7 @@ export default class MapViewHome extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.tab3}>
-          <TouchableOpacity style={styles.buttoninnactive}>
+          <TouchableOpacity style={styles.b1}>
             <Icon
               style={{ color: "#ffffff", margin: 2 }}
               solid
@@ -57,7 +58,7 @@ export default class MapViewHome extends Component {
             />
             <Text style={styles.btntxt}>Call Doctor</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonnactive}>
+          <TouchableOpacity style={styles.b2}>
             <Icon
               style={{ color: "#ffffff", margin: 2 }}
               solid
@@ -66,7 +67,7 @@ export default class MapViewHome extends Component {
             />
             <Text style={styles.btntxt}>Nearby</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttoninnactive}>
+          <TouchableOpacity style={styles.b3}>
             <Icon
               style={{ color: "#ffffff", margin: 2 }}
               solid
@@ -87,7 +88,7 @@ export default class MapViewHome extends Component {
             justifyContent: "center",
             borderRadius: 35,
             right: 10,
-            top: 10,
+            top: 70,
             zIndex: 1
           }}
         >
@@ -132,6 +133,75 @@ export default class MapViewHome extends Component {
           />
         </TouchableOpacity>
 
+        <View
+          style={{
+            marginTop: 11,
+            flexDirection: "row",
+            position: "absolute",
+            zIndex: 2,
+            shadowColor: "rgba(69, 91, 99, 0.08)",
+            shadowOffset: { width: 12, height: 0 },
+            shadowRadius: 16,
+            borderRadius: 12,
+            width: 343,
+            height: 52,
+            marginLeft: 40,
+            marginRight: 16
+          }}
+        >
+          <View
+            style={{
+              flexDirection: "row",
+              backgroundColor: "#FFF",
+              marginHorizontal: 20,
+              shadowOffset: { width: 0, height: 0 },
+              shadowColor: "black",
+              shadowOpacity: "1",
+              elevation: 2,
+              borderRadius: 20,
+              flex: 5
+            }}
+          >
+            <TouchableOpacity>
+              <Icon
+                name="stream"
+                size={20}
+                color="#8a8888"
+                style={{
+                  marginLeft: 15,
+                  marginRight: 15,
+                  marginTop: 15
+                }}
+              />
+            </TouchableOpacity>
+            <TextInput
+              placeholder="Search Here"
+              placeholderTextColor="grey"
+              style={{
+                backgroundColor: "#fff",
+                flex: 1,
+                fontWeight: "700",
+                color: "#8a8888",
+                fontFamily: "Helvetica",
+                fontSize: 12,
+                fontWeight: "400"
+              }}
+            />
+            <TouchableOpacity>
+              <Icon
+                name="search"
+                size={20}
+                color="grey"
+                style={{
+                  marginLeft: 15,
+                  marginRight: 15,
+                  marginTop: 15
+                }}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+
         <MapView
           style={{ height: height, width: width }}
           region={{
@@ -149,22 +219,6 @@ export default class MapViewHome extends Component {
             />
           ))}
         </MapView>
-        {/* <View style={{ flexDirection: "row" }}>
-          <View
-            style={{
-              backgroundColor: "red",
-              width: width / 2,
-              height: width / 2
-            }}
-          />
-          <View
-            style={{
-              backgroundColor: "blue",
-              width: width / 2,
-              height: width / 2
-            }}
-          />
-        </View> */}
       </View>
     );
   }
@@ -183,8 +237,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     zIndex: 1,
     bottom: 10,
-    left: 70,
-    right: 70,
+    left: 68,
+    right: 68,
     borderRadius: 20
   },
   buttoninnactive: {
@@ -215,5 +269,38 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: "400",
     textAlign: "center"
+  },
+  b1: {
+    width: 81,
+    height: 62,
+    borderRadius: 8,
+    backgroundColor: "#353a50",
+    marginTop: 8,
+    marginBottom: 8,
+    marginRight: 4,
+    marginLeft: 4,
+    alignItems: "center"
+  },
+  b2: {
+    width: 81,
+    height: 62,
+    borderRadius: 8,
+    backgroundColor: "#00c4ff",
+    marginTop: 8,
+    marginBottom: 8,
+    marginRight: 4,
+    marginLeft: 4,
+    alignItems: "center"
+  },
+  b3: {
+    width: 81,
+    height: 62,
+    borderRadius: 8,
+    backgroundColor: "#353a50",
+    marginTop: 8,
+    marginBottom: 8,
+    marginRight: 4,
+    marginLeft: 4,
+    alignItems: "center"
   }
 });
