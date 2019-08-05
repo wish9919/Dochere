@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  TouchableOpacity
+} from "react-native";
 
 //google-map
 import MapView from "react-native-maps";
@@ -34,6 +40,7 @@ export default class MapViewHome extends Component {
       ]
     };
   }
+
   render() {
     return (
       <View style={styles.container}>

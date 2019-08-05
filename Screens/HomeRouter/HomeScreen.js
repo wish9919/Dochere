@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  StatusBar,
+  TouchableOpacity
+} from "react-native";
 
 import {
   createMaterialTopTabNavigator,
@@ -48,6 +54,9 @@ const TabNavigator = createMaterialTopTabNavigator(
 const AppContainer = createAppContainer(TabNavigator);
 
 export default class HomeScreen extends Component {
+  Navi1 = () => {
+    this.props.navigation.navigate("ShortcutScreen");
+  };
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -64,7 +73,26 @@ export default class HomeScreen extends Component {
             </Title>
           </Body>
         </Header>
+
         <AppContainer />
+        <TouchableOpacity
+          onPress={this.Navi1}
+          style={{
+            width: 50,
+            height: 50,
+            position: "absolute",
+            backgroundColor: "#347aeb",
+            alignContent: "center",
+            justifyContent: "center",
+            borderRadius: 25,
+            right: 10,
+            bottom: 10
+          }}
+        >
+          <Text style={{ color: "#fff", textAlign: "center", fontSize: 20 }}>
+            0
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }
