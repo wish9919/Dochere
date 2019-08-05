@@ -16,7 +16,7 @@ import Path from "./Assets/path";
 
 export default class LoginScreen extends Component {
   Navi1 = () => {
-    this.props.navigation.navigate("Router");
+    this.props.navigation.navigate("ShortcutScreen");
   };
   Navi2 = () => {
     this.props.navigation.navigate("IntroScreen");

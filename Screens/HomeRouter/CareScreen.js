@@ -83,7 +83,7 @@ export default class CareScreen extends Component {
           backgroundColor="transparent"
         />
         <Header
-          style={{ backgroundColor: "#fff", marginTop: 30 }}
+          style={{ backgroundColor: "#fff", marginTop: 25 }}
           iosBarStyle="dark-content"
           androidStatusBarColor="#fff"
         >
